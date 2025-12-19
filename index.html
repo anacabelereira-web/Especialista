@@ -15,7 +15,7 @@
             --bg-dark: #282a36;
             --bg-card: #2f313a;
             --bg-header: #1a1c22;
-            --accent-color: #8FB9A8;
+            --accent-color: #8FB9A8; /* Verde Sálvia */
             --text-main: #f8f8f2;
             --text-muted: #d0d0d0;
             --border-color: #3a3c4a;
@@ -114,7 +114,7 @@
             color: white;
         }
 
-        /* Serviços */
+        /* Serviços (Cards) */
         .section-padding { padding: 60px 0; }
         .section-title {
             text-align: center;
@@ -143,12 +143,42 @@
             transform: translateY(-10px);
             border-color: var(--accent-color);
         }
-        .service-img {
-            height: 300px;
-            object-fit: cover;
-            width: 100%;
+
+        /* --- ESTILO PARA FOTOS ANTES/DEPOIS --- */
+        .service-media-group {
+            display: flex; /* Coloca lado a lado */
             border-bottom: 1px solid var(--border-color);
         }
+        .media-before, .media-after {
+            position: relative;
+            width: 50%; /* Cada uma ocupa metade */
+        }
+        .media-before {
+            border-right: 1px solid var(--border-color); /* Linha divisória */
+        }
+        .service-media-group img {
+            width: 100%;
+            height: 220px; /* Altura ajustada para o par */
+            object-fit: cover;
+            display: block;
+        }
+        /* Etiquetas Antes/Depois */
+        .label-antes, .label-depois {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 4px 0;
+            letter-spacing: 1px;
+        }
+        .label-antes { background-color: rgba(40, 42, 54, 0.8); color: #ccc; }
+        .label-depois { background-color: var(--accent-color); color: #282a36; }
+        /* ------------------------------------- */
+
         .service-body {
             padding: 25px;
             flex-grow: 1;
@@ -172,11 +202,11 @@
             text-align: center;
         }
 
-        /* Nova Seção da Tabela */
+        /* Seção da Tabela */
         .tabela-section {
-            background-color: #fff; /* Fundo branco para destacar a tabela */
+            background-color: #fff; 
             padding: 60px 0;
-            color: #333; /* Texto escuro nesta seção */
+            color: #333; 
         }
         .tabela-container img {
             max-width: 100%;
@@ -222,6 +252,7 @@
 
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.2rem; }
+            .service-media-group img { height: 180px; } /* Menor no celular */
         }
     </style>
 </head>
@@ -256,13 +287,22 @@
         <div class="container">
             <div class="section-title">
                 <h2>Nossos Serviços</h2>
-                <p style="color: var(--text-muted);">Qualidade profissional com preços justos.</p>
+                <p style="color: var(--text-muted);">Confira nossas transformações.</p>
             </div>
             
             <div class="row g-4">
                 <div class="col-md-4 col-sm-6">
                     <div class="service-card">
-                        <img src="prog2.jpg" class="service-img" alt="Resultado Progressiva">
+                        <div class="service-media-group">
+                            <div class="media-before">
+                                <img src="prog1.jpg" alt="Antes">
+                                <span class="label-antes">Antes</span>
+                            </div>
+                            <div class="media-after">
+                                <img src="prog2.jpg" alt="Depois">
+                                <span class="label-depois">Depois</span>
+                            </div>
+                        </div>
                         <div class="service-body">
                             <h3>Progressiva</h3>
                             <p class="price">R$ 130,00</p>
@@ -274,7 +314,16 @@
 
                 <div class="col-md-4 col-sm-6">
                     <div class="service-card">
-                        <img src="afro2.jpg" class="service-img" alt="Resultado Permanente Afro">
+                        <div class="service-media-group">
+                            <div class="media-before">
+                                <img src="afro1.jpg" alt="Antes">
+                                <span class="label-antes">Antes</span>
+                            </div>
+                            <div class="media-after">
+                                <img src="afro2.jpg" alt="Depois">
+                                <span class="label-depois">Depois</span>
+                            </div>
+                        </div>
                         <div class="service-body">
                             <h3>Permanente Afro</h3>
                             <p class="price">R$ 150,00</p>
@@ -286,7 +335,16 @@
 
                 <div class="col-md-4 col-sm-6">
                     <div class="service-card">
-                        <img src="botox2.jpg" class="service-img" alt="Resultado Botox">
+                        <div class="service-media-group">
+                            <div class="media-before">
+                                <img src="botox1.jpg" alt="Antes">
+                                <span class="label-antes">Antes</span>
+                            </div>
+                            <div class="media-after">
+                                <img src="botox2.jpg" alt="Depois">
+                                <span class="label-depois">Depois</span>
+                            </div>
+                        </div>
                         <div class="service-body">
                             <h3>Botox Capilar</h3>
                             <p class="price">R$ 80,00</p>
@@ -298,7 +356,16 @@
 
                 <div class="col-md-4 col-sm-6">
                     <div class="service-card">
-                        <img src="relax2.jpg" class="service-img" alt="Resultado Relaxamento">
+                        <div class="service-media-group">
+                            <div class="media-before">
+                                <img src="relax1.jpg" alt="Antes">
+                                <span class="label-antes">Antes</span>
+                            </div>
+                            <div class="media-after">
+                                <img src="relax2.jpg" alt="Depois">
+                                <span class="label-depois">Depois</span>
+                            </div>
+                        </div>
                         <div class="service-body">
                             <h3>Relaxamento</h3>
                             <p class="price">R$ 80,00</p>
@@ -310,7 +377,16 @@
 
                 <div class="col-md-4 col-sm-6">
                     <div class="service-card">
-                        <img src="escova2.jpg" class="service-img" alt="Resultado Escova">
+                        <div class="service-media-group">
+                            <div class="media-before">
+                                <img src="escova1.jpg" alt="Antes">
+                                <span class="label-antes">Antes</span>
+                            </div>
+                            <div class="media-after">
+                                <img src="escova2.jpg" alt="Depois">
+                                <span class="label-depois">Depois</span>
+                            </div>
+                        </div>
                         <div class="service-body">
                             <h3>Escova + Hidratação</h3>
                             <p class="price">R$ 60,00</p>
@@ -322,7 +398,16 @@
 
                 <div class="col-md-4 col-sm-6">
                     <div class="service-card">
-                        <img src="hidra2.jpg" class="service-img" alt="Resultado Hidratação">
+                        <div class="service-media-group">
+                            <div class="media-before">
+                                <img src="hidra1.jpg" alt="Antes">
+                                <span class="label-antes">Antes</span>
+                            </div>
+                            <div class="media-after">
+                                <img src="hidra2.jpg" alt="Depois">
+                                <span class="label-depois">Depois</span>
+                            </div>
+                        </div>
                         <div class="service-body">
                             <h3>Hidratação (Ozônio)</h3>
                             <p class="price">R$ 40,00</p>
@@ -334,7 +419,16 @@
                 
                 <div class="col-md-4 col-sm-6 mx-auto">
                     <div class="service-card">
-                        <img src="corte2.png" class="service-img" alt="Resultado Corte">
+                        <div class="service-media-group">
+                            <div class="media-before">
+                                <img src="corte1.png" alt="Antes">
+                                <span class="label-antes">Antes</span>
+                            </div>
+                            <div class="media-after">
+                                <img src="corte2.png" alt="Depois">
+                                <span class="label-depois">Depois</span>
+                            </div>
+                        </div>
                         <div class="service-body">
                             <h3>Corte Feminino</h3>
                             <p class="price">A partir de R$ 30,00</p>
