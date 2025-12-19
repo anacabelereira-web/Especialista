@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANA | Especialista em Cabelos</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Raleway:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- Variáveis do Tema Dark --- */
+        :root {
+            --bg-dark: #282a36;
+            --bg-card: #2f313a;
+            --bg-header: #1a1c22;
+            --accent-color: #8FB9A8;
+            --text-main: #f8f8f2;
+            --text-muted: #d0d0d0;
+            --border-color: #3a3c4a;
+        }
+
+        body {
+            font-family: 'Raleway', sans-serif;
+            color: var(--text-main);
+            background-color: var(--bg-dark);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5, .navbar-brand {
+            font-family: 'Playfair Display', serif;
+            color: #ededed;
+            font-weight: 600;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: var(--bg-header) !important;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+            padding: 15px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .navbar-brand {
+            font-size: 1.5rem;
+            color: var(--text-main) !important;
+            letter-spacing: 1px;
+        }
+        .nav-link {
+            color: var(--text-muted) !important;
+            font-weight: 600;
+            margin-left: 15px;
+            transition: 0.3s;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: var(--accent-color) !important;
+        }
+        .navbar-toggler {
+            border-color: var(--accent-color);
+            background-color: rgba(143, 185, 168, 0.2);
+        }
+        .navbar-toggler-icon { filter: invert(1); }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(40, 42, 54, 0.8), rgba(40, 42, 54, 0.8)), url('botox2.jpg'); 
+            background-size: cover;
+            background-position: center;
+            height: 80vh; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .hero h1 { font-size: 3.5rem; margin-bottom: 20px; }
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Botões */
+        .btn-custom {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 12px 35px;
+            border-radius: 50px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: bold;
+            border: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        .btn-custom:hover {
+            background-color: #7DA89B;
+            transform: translateY(-2px);
+            color: white;
+        }
+        .btn-outline-custom {
+            border: 2px solid var(--accent-color);
+            color: var(--accent-color);
+            border-radius: 50px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        .btn-outline-custom:hover {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        /* Serviços */
+        .section-padding { padding: 60px 0; }
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            display: inline-block;
+            border-bottom: 3px solid var(--accent-color);
+            padding-bottom: 10px;
+        }
+        
+        .service-card {
+            background: var(--bg-card);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid var(--border-color);
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-color);
+        }
+        .service-img {
+            height: 300px;
+            object-fit: cover;
+            width: 100%;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .service-body {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+        }
+        .price {
+            color: var(--accent-color);
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin: 10px 0;
+            font-family: 'Raleway', sans-serif;
+        }
+
+        /* Contato */
+        .contact-section {
+            background-color: var(--bg-header);
+            border-top: 1px solid var(--border-color);
+            color: white;
+            text-align: center;
+        }
+
+        /* Nova Seção da Tabela */
+        .tabela-section {
+            background-color: #fff; /* Fundo branco para destacar a tabela */
+            padding: 60px 0;
+            color: #333; /* Texto escuro nesta seção */
+        }
+        .tabela-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            border: 1px solid #ddd;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #111;
+            color: #888;
+            padding: 40px 0;
+            border-top: 1px solid #222;
+        }
+
+        /* WhatsApp Flutuante */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .whatsapp-float:hover {
+            background-color: #128C7E;
+            color: white;
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">ANA | Especialista</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="#home">Início</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#servicos">Serviços</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#tabela">Tabela</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header id="home" class="hero">
+        <div class="container">
+            <h1>Cabelos incríveis,<br>todos os dias.</h1>
+            <p>Transformação, cuidado e autoestima. Venha realçar o que há de melhor em você.</p>
+            <a href="https://wa.me/5521998356217" class="btn btn-custom" target="_blank">Agendar Horário</a>
+        </div>
+    </header>
+
+    <section id="servicos" class="section-padding">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nossos Serviços</h2>
+                <p style="color: var(--text-muted);">Qualidade profissional com preços justos.</p>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-4 col-sm-6">
+                    <div class="service-card">
+                        <img src="prog2.jpg" class="service-img" alt="Resultado Progressiva">
+                        <div class="service-body">
+                            <h3>Progressiva</h3>
+                            <p class="price">R$ 130,00</p>
+                            <p>Alinhamento térmico que reduz volume e elimina o frizz. Fios lisos e macios.</p>
+                            <a href="https://wa.me/5521998356217?text=Olá, gostaria de agendar uma Progressiva" class="btn btn-outline-custom mt-auto">Agendar</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6">
+                    <div class="service-card">
+                        <img src="afro2.jpg" class="service-img" alt="Resultado Permanente Afro">
+                        <div class="service-body">
+                            <h3>Permanente Afro</h3>
+                            <p class="price">R$ 150,00</p>
+                            <p>Definição e criação de cachos para cabelos crespos. Balanço natural.</p>
+                            <a href="https://wa.me/5521998356217?text=Olá, gostaria de agendar um Permanente Afro" class="btn btn-outline-custom mt-auto">Agendar</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6">
+                    <div class="service-card">
+                        <img src="botox2.jpg" class="service-img" alt="Resultado Botox">
+                        <div class="service-body">
+                            <h3>Botox Capilar</h3>
+                            <p class="price">R$ 80,00</p>
+                            <p>Reposição de massa, redução de frizz e devolução de força aos fios.</p>
+                            <a href="https://wa.me/5521998356217?text=Olá, gostaria de agendar um Botox" class="btn btn-outline-custom mt-auto">Agendar</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6">
+                    <div class="service-card">
+                        <img src="relax2.jpg" class="service-img" alt="Resultado Relaxamento">
+                        <div class="service-body">
+                            <h3>Relaxamento</h3>
+                            <p class="price">R$ 80,00</p>
+                            <p>Soltura dos cachos para mais leveza, sem perder a forma natural.</p>
+                            <a href="https://wa.me/5521998356217?text=Olá, gostaria de agendar um Relaxamento" class="btn btn-outline-custom mt-auto">Agendar</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6">
+                    <div class="service-card">
+                        <img src="escova2.jpg" class="service-img" alt="Resultado Escova">
+                        <div class="service-body">
+                            <h3>Escova + Hidratação</h3>
+                            <p class="price">R$ 60,00</p>
+                            <p>Reposição de nutrientes finalizada com uma escova modelada.</p>
+                            <a href="https://wa.me/5521998356217?text=Olá, gostaria de agendar uma Escova" class="btn btn-outline-custom mt-auto">Agendar</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6">
+                    <div class="service-card">
+                        <img src="hidra2.jpg" class="service-img" alt="Resultado Hidratação">
+                        <div class="service-body">
+                            <h3>Hidratação (Ozônio)</h3>
+                            <p class="price">R$ 40,00</p>
+                            <p>Vapor de ozônio que potencializa a hidratação e dá brilho espelhado.</p>
+                            <a href="https://wa.me/5521998356217?text=Olá, gostaria de agendar uma Hidratação" class="btn btn-outline-custom mt-auto">Agendar</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 col-sm-6 mx-auto">
+                    <div class="service-card">
+                        <img src="corte2.png" class="service-img" alt="Resultado Corte">
+                        <div class="service-body">
+                            <h3>Corte Feminino</h3>
+                            <p class="price">A partir de R$ 30,00</p>
+                            <p>Renovação do visual e remoção de pontas duplas.</p>
+                            <a href="https://wa.me/5521998356217?text=Olá, gostaria de agendar um Corte" class="btn btn-outline-custom mt-auto">Agendar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="tabela" class="tabela-section">
+        <div class="container text-center">
+            <h2 style="font-family: 'Playfair Display', serif; font-weight: 600; margin-bottom: 30px;">Tabela de Valores Completa</h2>
+            <div class="tabela-container">
+                <img src="tabela.jpg" alt="Tabela de Preços Completa">
+            </div>
+        </div>
+    </section>
+
+    <section id="contato" class="section-padding contact-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <h2>Entre em Contato</h2>
+                    <p style="color: var(--text-muted); margin-bottom: 30px;">Tire suas dúvidas ou agende seu horário agora mesmo.</p>
+                    
+                    <div style="font-size: 1.2em; margin-bottom: 30px;">
+                        <p><i class="fab fa-whatsapp me-2" style="color: var(--accent-color);"></i> (21) 99835-6217</p>
+                        <p><i class="fas fa-map-marker-alt me-2" style="color: var(--accent-color);"></i> Rio de Janeiro - RJ</p>
+                    </div>
+                    
+                    <a href="https://wa.me/5521998356217" class="btn btn-custom btn-lg">Agendar pelo WhatsApp</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container text-center">
+            <h4>Ana | Especialista em Cabelos</h4>
+            <p>Realçando sua beleza, elevando sua autoestima.</p>
+            <p class="small mt-4" style="opacity: 0.6;">&copy; 2025 Ana Especialista. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/5521998356217" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
